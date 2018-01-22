@@ -18,8 +18,7 @@ def news_today(request):
         if form.is_valid():
             name = form.cleaned_data['your_name']
             email = form.cleaned_data['email']
-            recipient = NewsLetterRecipients(name = name, email = email)
-
+            recipient = NewsLetterRecipients(name = name, email = email) #object from the form to retrieve name and email
             recipient.save()
             HttpResponseRedirect('news')
     else: 
