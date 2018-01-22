@@ -3,6 +3,7 @@ from django.http  import HttpResponse,Http404,HttpResponseRedirect
 import datetime as dt
 from . models import Articles
 from .forms import NewsLetterForm
+from .email import send_welcome_email
 
 # Create your views here.
 def welcome(request):
