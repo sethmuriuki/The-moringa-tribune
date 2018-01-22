@@ -31,10 +31,6 @@ class Articles(models.Model):
     pub_date = models.DateTimeField(auto_now_add=True)
     article_image = models.ImageField(upload_to = 'articles/', null = True, blank = True)
 
-class NewsLetterRecipients(models.Model):
-    name = models.CharField(max_length = 30)
-    email = models.EmailField()
-
     @classmethod
     def search_by_title(cls,search_term):
         news = cls.object.filter(title__icontains=search_term)
@@ -47,4 +43,7 @@ class NewsLetterRecipients(models.Model):
         news = cls.objects.filter(pub_date__date = today)
         return news
 
+class NewsLetterRecipients(models.Model):
+    name = models.CharField(max_length = 30)
+    email = models.EmailField()
 
